@@ -18,4 +18,6 @@ public interface OrderItemService {
     void removeOrderItemForCart(CartEntity cart);
 
     List<OrderItemEntity> getOrderItemsByOrderRequest(OrderRequestEntity orderRequest);
+
+    void saveOrderItem(OrderItemEntity orderItemEntity);
 }

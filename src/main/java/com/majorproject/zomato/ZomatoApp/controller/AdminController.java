@@ -35,6 +35,8 @@ public class AdminController {
         return ResponseEntity.ok(authService.onBoardPartner(userId , pointDTO));
     }
 
+    //TODO : create controller to create Promo
+
     @GetMapping(path = "/getAllExpiredPromos")
     public ResponseEntity<List<AdminPromoDTO>> getAllExpiredPromos() {
         return ResponseEntity.ok(promoService.getAllExpiredPromos());

@@ -72,5 +72,10 @@ public class OrderItemServiceImpl implements OrderItemService {
                 .orElse(null);
     }
 
+    @Override
+    public void saveOrderItem(OrderItemEntity orderItemEntity) {
+        orderItemRepository.save(orderItemEntity);
+    }
+
 
 }

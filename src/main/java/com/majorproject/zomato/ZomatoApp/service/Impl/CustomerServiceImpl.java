@@ -129,6 +129,8 @@ public class CustomerServiceImpl implements CustomerService {
 
         List<OrderItemEntity> orderItemEntities = new ArrayList<>(cart.getOrderItems());
 
+
+
         //get the promo if orderRequest has
         //update the totalBill if promo applied
         Double totalBill = cart.getTotalAmount();
@@ -157,6 +159,12 @@ public class CustomerServiceImpl implements CustomerService {
 
         //save the orderRequest
         OrderRequestEntity savedOrderRequest = orderRequestRepository.save(orderRequest);
+
+        //loop through each OrderItem and set the OrderRequest
+        orderItemEntities.forEach(orderItemEntity -> {
+            orderItemEntity.setOrderRequest(savedOrderRequest);
+            orderItemService.saveOrderItem(orderItemEntity);
+        });
 
 
 

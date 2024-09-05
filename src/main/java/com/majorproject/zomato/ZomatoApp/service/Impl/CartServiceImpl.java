@@ -80,11 +80,14 @@ public class CartServiceImpl implements CartService {
                     " the existing cart , restaurantId in cart :"+cart.getRestaurant().getId());
 
 
+        //check if restaurant has the given menuItemId
+        List<MenuItemEntity> menuItemEntities  = menuItemService.getMenuItemsByRestaurant(restaurant);
+        MenuItemEntity menuItem = menuItemEntities.stream()
+                .filter(menuItem1 -> menuItem1.getId().equals(cartItemDTO.getMenuItemId()))
+                .findFirst()
+                .orElseThrow(() -> new ResourceNotFoundException("Given menuItem id " +
+                        "is not present in restaurant menu."));
 
-
-        //create OrderItem for the cart
-        MenuItemDTO menuItemDTO = menuItemService.getMenuItemById(cartItemDTO.getMenuItemId());
-        MenuItemEntity menuItem = modelMapper.map(menuItemDTO , MenuItemEntity.class);
 
         //if customer is adding same menu Item than increase the quantity
         OrderItemEntity orderItem = orderItemService.isItemPresent(menuItem.getName() , cart);
