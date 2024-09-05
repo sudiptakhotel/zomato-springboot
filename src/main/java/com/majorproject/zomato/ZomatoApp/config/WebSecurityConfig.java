@@ -27,7 +27,8 @@ public class WebSecurityConfig {
             "/restaurant/**" ,
             "/actuator/**" ,
             "/v3/**",
-            "/swagger-ui/**"
+            "/swagger-ui/**" ,
+            "/"
     };
 
     @Bean
