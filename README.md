@@ -2,6 +2,9 @@
 
 ZomatoApp is a backend service for a food delivery application, inspired by Zomato. This application is built using the Spring Boot framework and follows a monolithic architecture. The backend handles various functionalities such as user management, restaurant management, order processing, and more.
 
+#**Demo Video**
+https://youtu.be/wDquFRS6lWo?si=1lYHf4MIYw1vdwd3
+
 ## Features
 
 - **User Management:** signup, login, and profile management for customers and partners.
